@@ -83,14 +83,22 @@ async def upload_document(file: UploadFile = File(...)):
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    # 🔁 Rebuild index after upload
-    load_indexing()
-    run_indexing_pipeline()
-
-    return {
-        "message": "Document uploaded and indexed successfully",
-        "filename": file.filename
-    }
+    # 🔁 Rebuild index after upload (with error handling)
+    try:
+        load_indexing()
+        run_indexing_pipeline()
+        return {
+            "message": "Document uploaded and indexed successfully",
+            "filename": file.filename
+        }
+    except Exception as e:
+        # If indexing fails, still accept the file
+        print(f"Indexing error (non-critical): {str(e)}")
+        return {
+            "message": f"Document uploaded successfully. Indexing had issues but file was saved.",
+            "filename": file.filename,
+            "warning": "Full indexing may not be available"
+        }
 
 class SummaryResponse(BaseModel):
     summary: str
