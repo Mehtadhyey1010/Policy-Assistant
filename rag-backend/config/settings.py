@@ -8,6 +8,7 @@ load_dotenv()
 # API KEYS
 # ===============================
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
 if GROQ_API_KEY is None:
     raise ValueError(" GROQ_API_KEY not found. Check your .env file.")
 
@@ -31,8 +32,8 @@ CHUNK_OVERLAP = 100       # overlap between chunks
 # We will use HuggingFace embeddings for indexing.
 EMBEDDING_MODEL_NAME = "all-MiniLM-L6-v2"
 
+
 # ===============================
-# LLM CONFIG
+# VECTOR STORE CONFIG
 # ===============================
-LLM_MODEL_NAME = "mixtral-8x7b-32768"  # Groq's fast model
-LLM_TEMPERATURE = 0.7
+VECTOR_DB_TYPE = "faiss"

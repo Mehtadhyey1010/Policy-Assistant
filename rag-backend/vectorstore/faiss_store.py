@@ -3,14 +3,18 @@ from langchain_community.vectorstores import FAISS
 from embeddings.embedder import get_embedding_model
 from config.settings import VECTOR_DB_DIR
 
+
 def build_faiss_index(documents):
     """
     Build a FAISS index from chunked documents.
     """
     embeddings = get_embedding_model()
+
     print("Creating FAISS index...")
     db = FAISS.from_documents(documents, embeddings)
+
     return db
+
 
 def save_faiss_index(db):
     """
@@ -20,9 +24,14 @@ def save_faiss_index(db):
     db.save_local(VECTOR_DB_DIR)
     print(f"FAISS index saved at: {VECTOR_DB_DIR}")
 
+
 def load_faiss_index():
     """
     Load FAISS index from disk.
     """
     embeddings = get_embedding_model()
-    return FAISS.load_local(VECTOR_DB_DIR, embeddings)
+    return FAISS.load_local(
+        VECTOR_DB_DIR,
+        embeddings,
+        allow_dangerous_deserialization=True
+    )
