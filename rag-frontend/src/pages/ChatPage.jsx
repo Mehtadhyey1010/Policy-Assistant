@@ -64,7 +64,7 @@ export default function ChatPage() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:8000/upload-document", {
+      const response = await fetch("http://localhost:8001/upload-document", {
         method: "POST",
         body: formData,
       });
@@ -108,7 +108,7 @@ export default function ChatPage() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/ask", {
+      const response = await fetch("http://localhost:8001/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: query }),
@@ -140,7 +140,7 @@ export default function ChatPage() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8000/summarize");
+      const response = await fetch("http://localhost:8001/summarize");
       if (!response.ok) throw new Error("Backend error");
       const data = await response.json();
 
