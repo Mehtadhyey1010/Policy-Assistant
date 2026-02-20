@@ -16,6 +16,21 @@ def build_faiss_index(documents):
     return db
 
 
+def add_documents_to_index(db, documents):
+    """
+    Add new documents to an existing FAISS index.
+    
+    WHY THIS FUNCTION:
+    - Part of incremental indexing strategy
+    - Allows adding new chunks to existing index without full rebuild
+    - Preserves previously indexed data while expanding the searchable corpus
+    - Dramatically improves performance when frequently uploading new documents
+    """
+    print(f"Adding {len(documents)} new document chunks to index...")
+    db.add_documents(documents)
+    return db
+
+
 def save_faiss_index(db):
     """
     Save FAISS index to disk.
