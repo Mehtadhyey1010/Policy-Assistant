@@ -1,4 +1,4 @@
-const BACKEND_URL = "http://localhost:8000";
+const BACKEND_URL = "http://localhost:8001";
 
 export async function askQuestion(question) {
   const res = await fetch(`${BACKEND_URL}/ask`, {
@@ -18,7 +18,7 @@ export async function uploadPdf(file) {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await fetch("http://localhost:8000/upload-pdf", {
+  const response = await fetch(`${BACKEND_URL}/upload-document`, {
     method: "POST",
     body: formData,
   });

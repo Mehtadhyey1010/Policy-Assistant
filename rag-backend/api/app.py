@@ -3,8 +3,18 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 # from fastapi.middleware.cors import CORSMiddleware
 
-from pipelines.rag_pipeline import ask_question
-from pipelines.summarization_pipeline import summarize_documents
+# Lazy import to avoid torch DLL issues on Windows
+ask_question = None
+summarize_documents = None
+
+def load_pipelines():
+    """Load pipelines on first use to avoid import errors"""
+    global ask_question, summarize_documents
+    if ask_question is None:
+        from pipelines.rag_pipeline import ask_question as aq
+        from pipelines.summarization_pipeline import summarize_documents as sd
+        ask_question = aq
+        summarize_documents = sd
 
 app = FastAPI(title="RAG Backend API")
 
@@ -32,6 +42,7 @@ class AnswerResponse(BaseModel):
 
 @app.post("/ask", response_model=AnswerResponse)
 def ask_rag(request: QuestionRequest):
+    load_pipelines()
     answer, sources = ask_question(request.question)
     return {
         "answer": answer,
@@ -47,9 +58,18 @@ from fastapi import UploadFile, File
 import shutil
 import os
 
-from indexer.build_index import run_indexing_pipeline
+# Lazy import for indexing pipeline
+run_indexing_pipeline = None
 
 UPLOAD_DIR = "data/raw"
+
+
+def load_indexing():
+    """Load indexing pipeline on first use"""
+    global run_indexing_pipeline
+    if run_indexing_pipeline is None:
+        from indexer.build_index import run_indexing_pipeline as rip
+        run_indexing_pipeline = rip
 
 
 @app.post("/upload-document")
@@ -64,6 +84,7 @@ async def upload_document(file: UploadFile = File(...)):
         shutil.copyfileobj(file.file, buffer)
 
     # 🔁 Rebuild index after upload
+    load_indexing()
     run_indexing_pipeline()
 
     return {
@@ -76,6 +97,7 @@ class SummaryResponse(BaseModel):
 
 @app.get("/summarize", response_model=SummaryResponse)
 def summarize():
+    load_pipelines()
     summary = summarize_documents()
     return {"summary": summary}
 
