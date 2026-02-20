@@ -43,13 +43,22 @@ class AnswerResponse(BaseModel):
 @app.post("/ask", response_model=AnswerResponse)
 def ask_rag(request: QuestionRequest):
     """
-    Q&A endpoint is currently disabled due to PyTorch DLL issues on Windows.
-    Please use the production environment or Linux/Mac for full functionality.
+    Ask a question about uploaded documents.
+    Uses RAG (Retrieval-Augmented Generation) to find relevant context and generate answers.
     """
-    return {
-        "answer": "⚠️ Q&A feature is temporarily unavailable. Please upload documents and try again in a moment.",
-        "sources": []
-    }
+    try:
+        load_pipelines()
+        answer, sources = ask_question(request.question)
+        return {
+            "answer": answer,
+            "sources": sources
+        }
+    except Exception as e:
+        print(f"Error in /ask endpoint: {str(e)}")
+        return {
+            "answer": f"Error: {str(e)}",
+            "sources": []
+        }
 
 
 @app.get("/")
@@ -108,12 +117,18 @@ class SummaryResponse(BaseModel):
 @app.get("/summarize", response_model=SummaryResponse)
 def summarize():
     """
-    Summarize endpoint is currently disabled due to PyTorch DLL issues on Windows.
-    Please use the production environment or Linux/Mac for full functionality.
+    Summarize all uploaded documents.
+    Generates section-wise summaries highlighting key policies.
     """
-    return {
-        "summary": "⚠️ Summarization feature is temporarily unavailable due to environment setup. Full features available in production environment."
-    }
+    try:
+        load_pipelines()
+        summary = summarize_documents()
+        return {"summary": summary}
+    except Exception as e:
+        print(f"Error in /summarize endpoint: {str(e)}")
+        return {
+            "summary": f"Error generating summary: {str(e)}"
+        }
 
 if __name__ == "__main__":
     import uvicorn
