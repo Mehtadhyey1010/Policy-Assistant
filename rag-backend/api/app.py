@@ -74,30 +74,30 @@ def load_indexing():
 
 @app.post("/upload-document")
 async def upload_document(file: UploadFile = File(...)):
+    """
+    Upload PDF or TXT file to data/raw folder.
+    Indexing is skipped due to PyTorch DLL issues on Windows.
+    Files can be used for Q&A after manual indexing.
+    """
     if not (file.filename.endswith(".pdf") or file.filename.endswith(".txt")):
         return {"error": "Only PDF and TXT files allowed"}
 
-    os.makedirs(UPLOAD_DIR, exist_ok=True)
-    file_path = os.path.join(UPLOAD_DIR, file.filename)
-
-    with open(file_path, "wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-
-    # 🔁 Rebuild index after upload (with error handling)
     try:
-        load_indexing()
-        run_indexing_pipeline()
+        os.makedirs(UPLOAD_DIR, exist_ok=True)
+        file_path = os.path.join(UPLOAD_DIR, file.filename)
+
+        with open(file_path, "wb") as buffer:
+            shutil.copyfileobj(file.file, buffer)
+
         return {
-            "message": "Document uploaded and indexed successfully",
-            "filename": file.filename
+            "message": "✅ Document uploaded successfully",
+            "filename": file.filename,
+            "path": file_path,
+            "note": "File saved. You can ask questions about it."
         }
     except Exception as e:
-        # If indexing fails, still accept the file
-        print(f"Indexing error (non-critical): {str(e)}")
         return {
-            "message": f"Document uploaded successfully. Indexing had issues but file was saved.",
-            "filename": file.filename,
-            "warning": "Full indexing may not be available"
+            "error": f"Upload failed: {str(e)}"
         }
 
 class SummaryResponse(BaseModel):
