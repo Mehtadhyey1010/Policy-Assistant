@@ -42,11 +42,13 @@ class AnswerResponse(BaseModel):
 
 @app.post("/ask", response_model=AnswerResponse)
 def ask_rag(request: QuestionRequest):
-    load_pipelines()
-    answer, sources = ask_question(request.question)
+    """
+    Q&A endpoint is currently disabled due to PyTorch DLL issues on Windows.
+    Please use the production environment or Linux/Mac for full functionality.
+    """
     return {
-        "answer": answer,
-        "sources": sources
+        "answer": "⚠️ Q&A feature is temporarily unavailable. Please upload documents and try again in a moment.",
+        "sources": []
     }
 
 
@@ -105,9 +107,13 @@ class SummaryResponse(BaseModel):
 
 @app.get("/summarize", response_model=SummaryResponse)
 def summarize():
-    load_pipelines()
-    summary = summarize_documents()
-    return {"summary": summary}
+    """
+    Summarize endpoint is currently disabled due to PyTorch DLL issues on Windows.
+    Please use the production environment or Linux/Mac for full functionality.
+    """
+    return {
+        "summary": "⚠️ Summarization feature is temporarily unavailable due to environment setup. Full features available in production environment."
+    }
 
 if __name__ == "__main__":
     import uvicorn
