@@ -30,3 +30,29 @@ def get_groq_response(context: str, question: str):
     )
 
     return response.choices[0].message.content
+
+
+def get_groq_summary(text: str):
+    """
+    Generate section-wise summary using Groq LLM.
+    """
+
+    prompt = f"""
+        You are a helpful AI assistant.
+        Please provide a section-wise summary of the following document.
+        Highlight key policies like leave, attendance, or any rules.
+        Format your response clearly using markdown headings and bullet points.
+
+        Document:
+            {text}
+        """
+
+    response = client.chat.completions.create(
+        model="openai/gpt-oss-120b",
+        messages=[
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.3
+    )
+
+    return response.choices[0].message.content

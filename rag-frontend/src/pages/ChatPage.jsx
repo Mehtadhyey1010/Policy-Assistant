@@ -49,8 +49,8 @@ export default function ChatPage() {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    if (file.type !== "application/pdf") {
-      setErrorMessage("Please select a valid PDF file.");
+    if (file.type !== "application/pdf" && file.type !== "text/plain") {
+      setErrorMessage("Please select a valid PDF or TXT file.");
       setTimeout(() => setErrorMessage(""), 4000);
       return;
     }
@@ -64,7 +64,7 @@ export default function ChatPage() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:8000/upload-pdf", {
+      const response = await fetch("http://localhost:8000/upload-document", {
         method: "POST",
         body: formData,
       });
@@ -127,6 +127,32 @@ export default function ChatPage() {
       setMessages((prev) => [
         ...prev,
         { role: "assistant", text: "⚠️ Error fetching response. Please try again." },
+      ]);
+    }
+    setLoading(false);
+  };
+
+  const handleSummarize = async () => {
+    if (loading || isUploading) return;
+
+    const userMsg = { role: "user", text: "Please summarize the document." };
+    setMessages((prev) => [...prev, userMsg]);
+    setLoading(true);
+
+    try {
+      const response = await fetch("http://localhost:8000/summarize");
+      if (!response.ok) throw new Error("Backend error");
+      const data = await response.json();
+
+      const botMsg = {
+        role: "assistant",
+        text: data.summary || "No summary generated.",
+      };
+      setMessages((prev) => [...prev, botMsg]);
+    } catch (err) {
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", text: "⚠️ Error generating summary. Please try again." },
       ]);
     }
     setLoading(false);
@@ -199,7 +225,7 @@ export default function ChatPage() {
             {/* Hidden file input */}
             <input
               type="file"
-              accept=".pdf,application/pdf"
+              accept=".pdf,.txt,application/pdf,text/plain"
               ref={fileInputRef}
               onChange={handleFileUpload}
               className="hidden"
@@ -210,8 +236,8 @@ export default function ChatPage() {
               type="button"
               onClick={handleTriggerUpload}
               className="ml-3 text-gray-400 hover:text-white transition-colors duration-200 p-2 flex-shrink-0 rounded-full hover:bg-white/10"
-              aria-label="Upload PDF"
-              title="Upload PDF documentation"
+              aria-label="Upload Document"
+              title="Upload PDF or TXT documentation"
             >
               <PlusIcon />
             </button>
@@ -220,7 +246,7 @@ export default function ChatPage() {
             {selectedFile && (
               <div className="flex items-center gap-2 bg-[#2a2a2a] hover:bg-[#333333] transition-colors px-3 py-1.5 rounded-full text-sm text-white max-w-[140px] md:max-w-[200px] ml-2 border border-white/5 shadow-sm">
                 <div className="flex items-center justify-center bg-[#e53e3e] text-white text-[10px] font-bold rounded-sm px-1.5 py-0.5 tracking-wider">
-                  PDF
+                  {selectedFile.name.endsWith(".txt") ? "TXT" : "PDF"}
                 </div>
                 <span className="truncate text-[13px]">{selectedFile.name}</span>
                 <button
@@ -242,11 +268,24 @@ export default function ChatPage() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder={selectedFile ? "Ask questions about this document..." : "Upload a PDF or ask anything..."}
+              placeholder={selectedFile ? "Ask questions about this document..." : "Upload a PDF or TXT, or ask anything..."}
               disabled={loading || isUploading}
               className="flex-1 bg-transparent text-white py-4 md:py-[18px] px-3 text-[15px] md:text-[16px] 
                          outline-none placeholder:text-gray-500 disabled:opacity-50 min-w-0"
             />
+
+            {/* Summarize button */}
+            {selectedFile && !isUploading && (
+              <button
+                type="button"
+                onClick={handleSummarize}
+                disabled={loading}
+                className="mr-2 px-3 py-1.5 bg-[#2a2a2a] hover:bg-[#333333] text-gray-300 hover:text-white rounded-lg text-[13px] font-medium transition-all duration-200 border border-white/10 disabled:opacity-50 flex-shrink-0"
+                title="Generate section-wise summary"
+              >
+                Summarize
+              </button>
+            )}
 
             {/* Send button */}
             <button

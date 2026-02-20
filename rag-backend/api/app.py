@@ -4,6 +4,7 @@ from pydantic import BaseModel
 # from fastapi.middleware.cors import CORSMiddleware
 
 from pipelines.rag_pipeline import ask_question
+from pipelines.summarization_pipeline import summarize_documents
 
 app = FastAPI(title="RAG Backend API")
 
@@ -51,10 +52,10 @@ from indexer.build_index import run_indexing_pipeline
 UPLOAD_DIR = "data/raw"
 
 
-@app.post("/upload-pdf")
-async def upload_pdf(file: UploadFile = File(...)):
-    if not file.filename.endswith(".pdf"):
-        return {"error": "Only PDF files allowed"}
+@app.post("/upload-document")
+async def upload_document(file: UploadFile = File(...)):
+    if not (file.filename.endswith(".pdf") or file.filename.endswith(".txt")):
+        return {"error": "Only PDF and TXT files allowed"}
 
     os.makedirs(UPLOAD_DIR, exist_ok=True)
     file_path = os.path.join(UPLOAD_DIR, file.filename)
@@ -66,9 +67,17 @@ async def upload_pdf(file: UploadFile = File(...)):
     run_indexing_pipeline()
 
     return {
-        "message": "PDF uploaded and indexed successfully",
+        "message": "Document uploaded and indexed successfully",
         "filename": file.filename
     }
+
+class SummaryResponse(BaseModel):
+    summary: str
+
+@app.get("/summarize", response_model=SummaryResponse)
+def summarize():
+    summary = summarize_documents()
+    return {"summary": summary}
 
 if __name__ == "__main__":
     import uvicorn
