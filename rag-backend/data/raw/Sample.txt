@@ -1,0 +1,310 @@
+=====================================================================
+GLOBAL ENTERPRISE CORPORATE POLICY RULEBOOK
+Version: 3.2
+Effective Date: January 1, 2026
+Document Classification: Internal Use Only
+=====================================================================
+
+TABLE OF CONTENTS
+
+1. Introduction
+2. Code of Conduct
+3. Employment Policies
+4. Work Hours and Attendance
+5. Leave Policy
+6. Compensation & Payroll
+7. Remote Work Policy
+8. IT & Data Security Policy
+9. Confidentiality & NDA
+10. Anti-Harassment Policy
+11. Equal Opportunity Policy
+12. Performance Management
+13. Travel & Reimbursement Policy
+14. Health & Safety Policy
+15. Disciplinary Procedures
+16. Termination Policy
+17. Grievance Redressal
+18. Ethics & Compliance
+19. Social Media Policy
+20. Document Control & Amendments
+
+=====================================================================
+1. INTRODUCTION
+=====================================================================
+
+This Policy Rulebook establishes the framework governing employee 
+conduct, responsibilities, rights, and organizational expectations. 
+All employees, contractors, interns, consultants, and temporary staff 
+must comply with the policies outlined herein.
+
+Failure to adhere to these policies may result in disciplinary action, 
+including termination.
+
+=====================================================================
+2. CODE OF CONDUCT
+=====================================================================
+
+2.1 Professional Behavior
+Employees must conduct themselves professionally and respectfully at 
+all times.
+
+2.2 Integrity
+Employees shall not engage in bribery, fraud, corruption, or unethical 
+practices.
+
+2.3 Conflict of Interest
+Employees must disclose any financial, personal, or external business 
+interests that conflict with company objectives.
+
+2.4 Gifts & Hospitality
+Employees may not accept gifts exceeding $100 in value without written 
+approval from senior management.
+
+=====================================================================
+3. EMPLOYMENT POLICIES
+=====================================================================
+
+3.1 Employment Categories
+- Full-Time
+- Part-Time
+- Contractual
+- Intern
+- Probationary
+
+3.2 Probation Period
+All new hires are subject to a probation period of 6 months.
+
+3.3 Confirmation of Employment
+Upon successful completion of probation, written confirmation shall be 
+provided.
+
+=====================================================================
+4. WORK HOURS AND ATTENDANCE
+=====================================================================
+
+4.1 Standard Work Hours
+Standard working hours are 9:00 AM to 6:00 PM, Monday to Friday.
+
+4.2 Overtime
+Overtime must be pre-approved. Compensation follows labor law standards.
+
+4.3 Late Attendance
+More than 3 late arrivals in a month may result in a warning.
+
+4.4 Absenteeism
+Uninformed absence beyond 2 consecutive days may lead to disciplinary 
+review.
+
+=====================================================================
+5. LEAVE POLICY
+=====================================================================
+
+5.1 Annual Leave
+Employees are entitled to 21 paid annual leave days per year.
+
+5.2 Sick Leave
+Employees are entitled to 12 paid sick leave days annually.
+
+5.3 Casual Leave
+Employees may avail 8 casual leave days per year.
+
+5.4 Maternity Leave
+Eligible employees are entitled to 26 weeks of paid maternity leave.
+
+5.5 Paternity Leave
+Eligible employees are entitled to 10 working days of paid paternity 
+leave.
+
+5.6 Leave Approval
+All leave requests must be submitted via the HR portal at least 3 days 
+in advance (except emergencies).
+
+=====================================================================
+6. COMPENSATION & PAYROLL
+=====================================================================
+
+6.1 Salary Payment
+Salary is credited on the last working day of each month.
+
+6.2 Deductions
+Applicable taxes and statutory deductions shall apply.
+
+6.3 Bonuses
+Performance bonuses are discretionary and based on annual reviews.
+
+=====================================================================
+7. REMOTE WORK POLICY
+=====================================================================
+
+7.1 Eligibility
+Employees may request remote work subject to managerial approval.
+
+7.2 Remote Work Days
+Maximum 3 days per week permitted.
+
+7.3 Equipment
+Employees are responsible for maintaining company-issued devices.
+
+7.4 Data Security
+Remote access must use VPN and two-factor authentication.
+
+=====================================================================
+8. IT & DATA SECURITY POLICY
+=====================================================================
+
+8.1 Password Policy
+Passwords must be at least 12 characters long and include symbols.
+
+8.2 Data Classification
+Data is categorized as:
+- Public
+- Internal
+- Confidential
+- Restricted
+
+8.3 Access Control
+Access to restricted systems requires managerial authorization.
+
+8.4 Data Breach Reporting
+All suspected breaches must be reported within 24 hours.
+
+=====================================================================
+9. CONFIDENTIALITY & NDA
+=====================================================================
+
+Employees must not disclose trade secrets, client information, 
+intellectual property, or proprietary systems.
+
+Violation may result in legal action.
+
+=====================================================================
+10. ANTI-HARASSMENT POLICY
+=====================================================================
+
+The organization maintains a zero-tolerance policy for harassment.
+
+Harassment includes:
+- Verbal abuse
+- Physical intimidation
+- Sexual harassment
+- Cyber harassment
+
+Complaints may be filed anonymously through the Ethics Committee.
+
+=====================================================================
+11. EQUAL OPPORTUNITY POLICY
+=====================================================================
+
+The organization prohibits discrimination based on:
+- Gender
+- Religion
+- Race
+- Disability
+- Nationality
+- Age
+
+=====================================================================
+12. PERFORMANCE MANAGEMENT
+=====================================================================
+
+12.1 Review Cycle
+Annual reviews occur every December.
+
+12.2 KPIs
+Employees are evaluated based on measurable KPIs.
+
+12.3 Performance Improvement Plan (PIP)
+Underperforming employees may be placed on a 60-day PIP.
+
+=====================================================================
+13. TRAVEL & REIMBURSEMENT POLICY
+=====================================================================
+
+13.1 Travel Approval
+All business travel must be pre-approved.
+
+13.2 Air Travel
+Economy class for employees below Director level.
+
+13.3 Hotel Stay
+Maximum reimbursement: $150 per night.
+
+13.4 Meal Allowance
+Daily meal allowance capped at $40.
+
+13.5 Expense Submission
+Expenses must be submitted within 7 working days of travel completion.
+
+=====================================================================
+14. HEALTH & SAFETY POLICY
+=====================================================================
+
+Employees must follow all workplace safety standards.
+
+Emergency exits must remain unobstructed.
+
+Safety drills shall be conducted twice per year.
+
+=====================================================================
+15. DISCIPLINARY PROCEDURES
+=====================================================================
+
+15.1 Verbal Warning
+15.2 Written Warning
+15.3 Final Warning
+15.4 Suspension
+15.5 Termination
+
+Serious misconduct may bypass intermediate steps.
+
+=====================================================================
+16. TERMINATION POLICY
+=====================================================================
+
+16.1 Resignation Notice
+Minimum 30 days written notice required.
+
+16.2 Immediate Termination
+May occur in cases of fraud, violence, or severe misconduct.
+
+16.3 Final Settlement
+Settlement processed within 30 days of last working day.
+
+=====================================================================
+17. GRIEVANCE REDRESSAL
+=====================================================================
+
+Employees may escalate complaints to:
+- Immediate Manager
+- HR Department
+- Ethics Committee
+
+All grievances shall be investigated within 15 working days.
+
+=====================================================================
+18. ETHICS & COMPLIANCE
+=====================================================================
+
+Employees must comply with all applicable laws and regulations.
+
+Whistleblower protection is guaranteed.
+
+=====================================================================
+19. SOCIAL MEDIA POLICY
+=====================================================================
+
+Employees must not post confidential company information online.
+
+Defamatory content against the organization is prohibited.
+
+=====================================================================
+20. DOCUMENT CONTROL & AMENDMENTS
+=====================================================================
+
+The organization reserves the right to amend policies at any time.
+
+All updates will be communicated via official email.
+
+=====================================================================
+END OF DOCUMENT
+=====================================================================

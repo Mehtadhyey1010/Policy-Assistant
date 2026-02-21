@@ -176,7 +176,7 @@ export default function ChatPage() {
         {/* Greeting Stack */}
         {!hasMessages && (
           <div className="flex flex-col items-center text-center mb-12 w-full animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-3 text-center">LEXORAAI</h1>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-3 text-center">LEXORA.AI</h1>
             <p className="text-base text-gray-400 mb-8 text-center">Intelligent Policy Assistant</p>
             <h2 className="text-2xl md:text-3xl font-medium text-white mb-8 mt-16 text-center">Where should we start?</h2>
           </div>
