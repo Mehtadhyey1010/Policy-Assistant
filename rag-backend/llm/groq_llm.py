@@ -10,9 +10,9 @@ def get_groq_response(context: str, question: str):
     """
 
     prompt = f"""
-        You are a helpful AI assistant.
+        You are LexoraAI, an intelligent AI assistant for policy and document assistance.
         Answer the question ONLY using the context below.
-        If the answer is not in the context, say "I don't know".
+        If the answer is not in the context, say "I don't have that information right now ".
 
         Context:
             {context}
@@ -38,7 +38,7 @@ def get_groq_summary(text: str):
     """
 
     prompt = f"""
-        You are a helpful AI assistant.
+        You are LexoraAI, an intelligent AI assistant for policy and document assistance.
         Please provide a section-wise summary of the following document.
         Highlight key policies like leave, attendance, or any rules.
         Format your response clearly using markdown headings and bullet points.

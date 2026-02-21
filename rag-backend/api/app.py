@@ -16,7 +16,7 @@ def load_pipelines():
         ask_question = aq
         summarize_documents = sd
 
-app = FastAPI(title="RAG Backend API")
+app = FastAPI(title="LexoraAI Backend")
 
 # 🔓 Allow React frontend to talk to backend
 app.add_middleware(

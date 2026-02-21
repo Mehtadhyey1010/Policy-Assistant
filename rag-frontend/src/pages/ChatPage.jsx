@@ -166,7 +166,7 @@ export default function ChatPage() {
       {/* Navbar when chat active */}
       {hasMessages && (
         <header className="fixed top-0 left-0 w-full flex items-center justify-between p-4 border-b border-white/10 bg-[#0f0f0f]/90 backdrop-blur-md z-10">
-          <h1 className="text-xl font-medium tracking-tight text-white">Policy Assistant</h1>
+          <h1 className="text-xl font-medium tracking-tight text-white">LexoraAI</h1>
         </header>
       )}
 
@@ -176,8 +176,8 @@ export default function ChatPage() {
         {/* Greeting Stack */}
         {!hasMessages && (
           <div className="flex flex-col items-center text-center mb-12 w-full animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-3 text-center">POLICY ASSISTANT</h1>
-            <p className="text-base text-gray-400 mb-8 text-center">Your intelligent policy assistant</p>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-white mb-3 text-center">LEXORAAI</h1>
+            <p className="text-base text-gray-400 mb-8 text-center">Intelligent Policy Assistant</p>
             <h2 className="text-2xl md:text-3xl font-medium text-white mb-8 mt-16 text-center">Where should we start?</h2>
           </div>
         )}
